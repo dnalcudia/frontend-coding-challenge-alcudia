@@ -3,7 +3,7 @@ import githubUser from './githubUser';
 
 export const store = configureStore({
   reducer: {
-    githubUser
+    githubUser,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

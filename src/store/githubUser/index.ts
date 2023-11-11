@@ -10,23 +10,23 @@ export interface GithubUserState {
 
 const initialState: GithubUserState = {
   githubUser: {
-    avatarUrl: "https://avatars.githubusercontent.com/u/43758751?v=4",
-    bio: "welcome to my crib",
-    blog: "",
-    company: "Student",
-    createdAt: "2018-10-01T17:20:38Z",
+    avatarUrl: 'https://avatars.githubusercontent.com/u/43758751?v=4',
+    bio: 'welcome to my crib',
+    blog: '',
+    company: 'Student',
+    createdAt: '2018-10-01T17:20:38Z',
     followers: 5,
-    followersUrl: "https://api.github.com/users/dnalcudia/followers",
+    followersUrl: 'https://api.github.com/users/dnalcudia/followers',
     following: 3,
-    followingUrl: "https://api.github.com/users/dnalcudia/following{/other_user}",
+    followingUrl: 'https://api.github.com/users/dnalcudia/following{/other_user}',
     id: 43758751,
-    location: "Mérida, Yuc.",
-    name: "Daniel Alcudia",
+    location: 'Mérida, Yuc.',
+    name: 'Daniel Alcudia',
     publicRepos: 30,
-    reposUrl: "https://api.github.com/users/dnalcudia/repos",
-    twitterUsername: "dnalcudia",
-    url: "https://api.github.com/users/dnalcudia",
-    username: "dnalcudia",
+    reposUrl: 'https://api.github.com/users/dnalcudia/repos',
+    twitterUsername: 'dnalcudia',
+    url: 'https://api.github.com/users/dnalcudia',
+    username: 'dnalcudia',
   },
   githubUserRequestStatus: RequestStatus.Idle,
 };
@@ -37,9 +37,6 @@ export const githubUserSlice = createSlice({
   reducers,
 });
 
-export const {
-  setGithubUser,
-  setGithubUserRequestStatus,
-} = githubUserSlice.actions;
+export const { setGithubUser, setGithubUserRequestStatus } = githubUserSlice.actions;
 
 export default githubUserSlice.reducer;

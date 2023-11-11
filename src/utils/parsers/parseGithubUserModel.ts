@@ -1,5 +1,5 @@
-import { GithubUserModel } from "../../ts/interfaces/GithubUserModel";
-import { GithubUser } from "../../ts/types/GithubUser";
+import { GithubUserModel } from '../../ts/interfaces/GithubUserModel';
+import { GithubUser } from '../../ts/types/GithubUser';
 
 export const parseGithubUserModel = ({
   avatar_url,

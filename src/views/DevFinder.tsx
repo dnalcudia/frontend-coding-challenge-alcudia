@@ -14,7 +14,7 @@ export const DevFinder = () => {
   const isLoading = githubUserRequestStatus === RequestStatus.Loading;
 
   const dispatchGetGithubUserByUsername = () => {
-    console.log('click')
+    console.log('click');
     dispatch(getGithubUserByUsername('dnalcudia'));
   };
 
@@ -22,13 +22,13 @@ export const DevFinder = () => {
     <div>
       <h1>Github User</h1>
       <button onClick={dispatchGetGithubUserByUsername}>xd</button>
-            {isLoading ? (
-              <Typography color='initial' variant='h3'>
-                Is Loading...
-              </Typography>
-            ) : (
-              <h3>{githubUser.name}</h3>
-            )}
+      {isLoading ? (
+        <Typography color='initial' variant='h3'>
+          Is Loading...
+        </Typography>
+      ) : (
+        <h3>{githubUser.name}</h3>
+      )}
     </div>
   );
 };
