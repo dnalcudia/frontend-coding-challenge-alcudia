@@ -1,11 +1,11 @@
 import {
     setGithubUser,
     setGithubUserRequestStatus
-} from '.';
+} from './index';
 import { RequestStatus } from '../../ts/enums/RequestStatus';
-import { GithubUserModel } from '../../ts/interfaces/GithubUserModel';
 import { getGithubUserData } from '../../services/githubService';
 import { AppThunk } from '../store';
+import { parseGithubUserModel } from '../../utils/parsers/parseGithubUserModel';
 
 export const getGithubUserByUsername =
   (username: string): AppThunk =>
@@ -14,10 +14,12 @@ export const getGithubUserByUsername =
         dispatch(setGithubUserRequestStatus(RequestStatus.Loading));
 
         const data = await getGithubUserData(username);
+        const githubUser = parseGithubUserModel(data);
 
-        console.log(data)
-
+        
+        dispatch(setGithubUser(githubUser));
         dispatch(setGithubUserRequestStatus(RequestStatus.Success));
+
       } catch (error) {
         dispatch(setGithubUserRequestStatus(RequestStatus.Failed));
       }
