@@ -6,11 +6,12 @@ import { GithubStats } from './GithubStats';
 import { GithubLinks } from './GithubLinks';
 
 interface GithubUserCardProps {
+  darkMode: boolean;
   githubUser: GithubUser;
   isLoading?: boolean;
 }
 
-export const GithubUserCard = ({ isLoading = false, githubUser }: GithubUserCardProps) => {
+export const GithubUserCard = ({ darkMode, isLoading = false, githubUser }: GithubUserCardProps) => {
   const {
     avatarUrl,
     name,
@@ -36,14 +37,14 @@ export const GithubUserCard = ({ isLoading = false, githubUser }: GithubUserCard
       gap={16}
       paddingX={24}
       paddingY={40}
-      sx={{ backgroundColor: '#1e2a47', opacity: isLoading ? 0.3 : 1 }}
+      sx={{ backgroundColor: darkMode ? '#1e2a47' : 'white', opacity: isLoading ? 0.3 : 1 }}
       width='100%'
     >
       <img src={avatarUrl} alt={`${username}-avatar`} style={{ width: '124px', borderRadius: '100px' }} />
       <Box display='flex' flexDirection='column' width={'100%'}>
         <Box alignItems={'flex-start'} display='flex' justifyContent={'space-between'} marginBottom={24}>
           <Box display='flex' flexDirection='column' alignItems='flex-start' gap={12}>
-            <Typography color='white' fontSize={24} fontWeight={600}>
+            <Typography color={darkMode ? 'white' : '#141d2f'} fontSize={24} fontWeight={600}>
               {name || 'This profile has no name'}
             </Typography>
             <a href={githubProfileUrl} target='blank' style={{ textDecoration: 'none' }}>
@@ -51,16 +52,16 @@ export const GithubUserCard = ({ isLoading = false, githubUser }: GithubUserCard
                 @{username}
               </Typography>
             </a>
-            <Typography color='white' fontSize={14}>
+            <Typography color={darkMode ? 'white' : '#141d2f'} fontSize={14}>
               {bio || 'This profile has no bio'}
             </Typography>
           </Box>
-          <Typography color='white' fontSize={14}>
+          <Typography color={darkMode ? 'white' : '#141d2f'} fontSize={14}>
             Joined {parseDate(createdAt)}
           </Typography>
         </Box>
-        <GithubStats followers={followers} following={following} repos={publicRepos} />
-        <GithubLinks company={company} blog={blog} location={location} twitter={twitterUsername} />
+        <GithubStats darkMode={darkMode} followers={followers} following={following} repos={publicRepos} />
+        <GithubLinks company={company} blog={blog} darkMode={darkMode} location={location} twitter={twitterUsername} />
       </Box>
     </Box>
   );

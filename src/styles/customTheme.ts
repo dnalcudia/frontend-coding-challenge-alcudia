@@ -20,7 +20,6 @@ export const theme = createTheme({
     MuiOutlinedInput: {
       styleOverrides: {
         root: {
-          color: 'white',
           fontSize: '16px',
         },
         notchedOutline: {

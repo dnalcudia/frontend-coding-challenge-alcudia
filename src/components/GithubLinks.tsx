@@ -6,13 +6,14 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import PlaceIcon from '@mui/icons-material/Place';
 
 interface GithubLinksProps {
-  company: string;
   blog: string;
+  company: string;
+  darkMode: boolean;
   location: string;
   twitter: string;
 }
 
-export const GithubLinks = ({ company, blog, location, twitter }: GithubLinksProps) => {
+export const GithubLinks = ({ company, blog, darkMode, location, twitter }: GithubLinksProps) => {
   const links = [
     { logo: PlaceIcon, value: location },
     { logo: LinkIcon, value: blog },
@@ -25,7 +26,7 @@ export const GithubLinks = ({ company, blog, location, twitter }: GithubLinksPro
       {links.map(({ logo: Logo, value }, index) => (
         <Box key={index} alignItems='center' display={'flex'} gap={12}>
           <Logo fontSize='medium' sx={{ color: '#4b6a9b' }} />
-          <Typography variant='body2' sx={{ color: !!value ? 'white' : '#4b6a9b' }}>
+          <Typography variant='body2' sx={{ color: !!value ? (darkMode ? 'white' : '#141d2f') : '#4b6a9b' }}>
             {value || 'Not Available'}
           </Typography>
         </Box>

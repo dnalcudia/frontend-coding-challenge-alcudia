@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import { useAppDispatch, useAppSelector } from '../utils/hooks/storeHooks';
 import { selectGithubUser, selectGithubUserRequestStatus } from '../store/githubUser/selector';
 import { RequestStatus } from '../ts/enums/RequestStatus';
-import { Container, Box, Alert, Snackbar } from '@mui/material';
+import { Box, Alert, Snackbar } from '@mui/material';
 import { SearchBar } from '../components/SearchBar';
 import { DevFinderHeader } from '../components/DevFinderHeader';
 import { GithubUserCard } from '../components/GithubUserCard';
@@ -42,7 +42,7 @@ export const DevFinder = () => {
   }, [githubUserRequestStatus]);
 
   return (
-    <Container>
+    <Fragment>
       <Box
         alignItems='center'
         display='flex'
@@ -50,17 +50,19 @@ export const DevFinder = () => {
         flexDirection='column'
         height='100vh'
         width='100%'
+        sx={{ backgroundColor: darkMode ? '#141d2f' : 'white' }}
       >
         <Box alignItems='center' display='flex' flexDirection='column' justifyContent='space-between' width={800}>
           <DevFinderHeader isLoading={isLoading} darkMode={darkMode} onClickDarkMode={handleOnClickDarkMode} />
           <SearchBar
+            darkMode={darkMode}
             isLoading={isLoading}
             placeholder={'Search Github username...'}
             value={searchValue}
             onClickSearch={handleOnClickSearch}
             onChangeTextField={handleOnChangeTextField}
           />
-          <GithubUserCard isLoading={isLoading} githubUser={githubUser} />
+          <GithubUserCard darkMode={darkMode} isLoading={isLoading} githubUser={githubUser} />
         </Box>
       </Box>
       <Snackbar open={showError} autoHideDuration={6000} onClose={handleCloseErrorSnackbar}>
@@ -68,6 +70,6 @@ export const DevFinder = () => {
           GitHub username not found. Please make sure you entered the correct username.
         </Alert>
       </Snackbar>
-    </Container>
+    </Fragment>
   );
 };

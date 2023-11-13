@@ -3,6 +3,7 @@ import { Box, TextField, Button } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
 interface SearchBarProps {
+  darkMode: boolean;
   value: string;
   placeholder: string;
   isLoading?: boolean;
@@ -11,12 +12,14 @@ interface SearchBarProps {
 }
 
 export const SearchBar = ({
+  darkMode,
   isLoading = false,
   placeholder,
   value,
   onClickSearch,
   onChangeTextField,
 }: SearchBarProps) => {
+  const isSearchButtonDisabled = isLoading || value === '';
   const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
     if (event.key === 'Enter') {
       onClickSearch();
@@ -33,7 +36,7 @@ export const SearchBar = ({
       gap={8}
       marginBottom={16}
       padding={12}
-      sx={{ backgroundColor: '#1e2a47' }}
+      sx={{ backgroundColor: darkMode ? '#1e2a47' : 'white' }}
       width='100%'
     >
       <Box alignItems='center' display='flex' gap={8} width='100%'>
@@ -45,10 +48,16 @@ export const SearchBar = ({
           variant='outlined'
           onChange={e => onChangeTextField(e.target.value)}
           onKeyDown={handleKeyDown}
+          sx={{
+            color: darkMode ? 'white' : '#141d2f',
+            '& .MuiOutlinedInput-root': {
+              color: darkMode ? 'white' : '#141d2f',
+            },
+          }}
         />
       </Box>
       <Button
-        disabled={isLoading}
+        disabled={isSearchButtonDisabled}
         variant='contained'
         sx={{ padding: 2, textTransform: 'none' }}
         onClick={onClickSearch}
