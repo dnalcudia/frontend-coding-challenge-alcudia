@@ -7,11 +7,12 @@ import { SearchBar } from '../components/SearchBar';
 import { DevFinderHeader } from '../components/DevFinderHeader';
 import { GithubUserCard } from '../components/GithubUserCard';
 import { getGithubUserByUsername } from '../store/githubUser/thunks';
+import { useDarkMode } from '../context/DarkModeContext';
 
 export const DevFinder = () => {
   const dispatch = useAppDispatch();
+  const { darkMode, toggleDarkMode } = useDarkMode();
   const [searchValue, setSearchValue] = useState('');
-  const [darkMode, setDarkMode] = useState(true);
   const [showError, setShowError] = useState(false);
 
   const githubUser = useAppSelector(selectGithubUser);
@@ -28,7 +29,7 @@ export const DevFinder = () => {
   };
 
   const handleOnClickDarkMode = () => {
-    setDarkMode(darkMode => !darkMode);
+    toggleDarkMode();
   };
 
   const handleCloseErrorSnackbar = () => {
@@ -52,17 +53,16 @@ export const DevFinder = () => {
         width='100%'
         sx={{ backgroundColor: darkMode ? '#141d2f' : 'white' }}
       >
-        <Box alignItems='center' display='flex' flexDirection='column' justifyContent='space-between' width={800}>
-          <DevFinderHeader isLoading={isLoading} darkMode={darkMode} onClickDarkMode={handleOnClickDarkMode} />
+        <Box alignItems='center' display='flex' flexDirection='column' justifyContent='space-between' width={700}>
+          <DevFinderHeader isLoading={isLoading} onClickDarkMode={handleOnClickDarkMode} />
           <SearchBar
-            darkMode={darkMode}
             isLoading={isLoading}
             placeholder={'Search Github username...'}
             value={searchValue}
             onClickSearch={handleOnClickSearch}
             onChangeTextField={handleOnChangeTextField}
           />
-          <GithubUserCard darkMode={darkMode} isLoading={isLoading} githubUser={githubUser} />
+          <GithubUserCard isLoading={isLoading} githubUser={githubUser} />
         </Box>
       </Box>
       <Snackbar open={showError} autoHideDuration={6000} onClose={handleCloseErrorSnackbar}>

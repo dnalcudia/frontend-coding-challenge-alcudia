@@ -4,14 +4,16 @@ import { GithubUser } from '../ts/types/GithubUser';
 import { parseDate } from '../utils/parsers/parseDate';
 import { GithubStats } from './GithubStats';
 import { GithubLinks } from './GithubLinks';
+import { useDarkMode } from '../context/DarkModeContext';
 
 interface GithubUserCardProps {
-  darkMode: boolean;
   githubUser: GithubUser;
   isLoading?: boolean;
 }
 
-export const GithubUserCard = ({ darkMode, isLoading = false, githubUser }: GithubUserCardProps) => {
+export const GithubUserCard = ({ isLoading = false, githubUser }: GithubUserCardProps) => {
+  const { darkMode } = useDarkMode();
+
   const {
     avatarUrl,
     name,
@@ -60,8 +62,8 @@ export const GithubUserCard = ({ darkMode, isLoading = false, githubUser }: Gith
             Joined {parseDate(createdAt)}
           </Typography>
         </Box>
-        <GithubStats darkMode={darkMode} followers={followers} following={following} repos={publicRepos} />
-        <GithubLinks company={company} blog={blog} darkMode={darkMode} location={location} twitter={twitterUsername} />
+        <GithubStats followers={followers} following={following} repos={publicRepos} />
+        <GithubLinks company={company} blog={blog} location={location} twitter={twitterUsername} />
       </Box>
     </Box>
   );

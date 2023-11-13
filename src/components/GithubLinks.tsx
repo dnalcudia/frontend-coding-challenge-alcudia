@@ -4,16 +4,18 @@ import ApartmentIcon from '@mui/icons-material/Apartment';
 import LinkIcon from '@mui/icons-material/Link';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import PlaceIcon from '@mui/icons-material/Place';
+import { useDarkMode } from '../context/DarkModeContext';
 
 interface GithubLinksProps {
   blog: string;
   company: string;
-  darkMode: boolean;
   location: string;
   twitter: string;
 }
 
-export const GithubLinks = ({ company, blog, darkMode, location, twitter }: GithubLinksProps) => {
+export const GithubLinks = ({ company, blog, location, twitter }: GithubLinksProps) => {
+  const { darkMode } = useDarkMode();
+
   const links = [
     { logo: PlaceIcon, value: location },
     { logo: LinkIcon, value: blog },

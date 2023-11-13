@@ -1,14 +1,16 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
+import { useDarkMode } from '../context/DarkModeContext';
 
 interface GithubStatsProps {
-  darkMode: boolean;
   followers: number;
   following: number;
   repos: number;
 }
 
-export const GithubStats = ({ darkMode, followers, following, repos }: GithubStatsProps) => {
+export const GithubStats = ({ followers, following, repos }: GithubStatsProps) => {
+  const { darkMode } = useDarkMode();
+
   const stats = [
     { label: 'Repos', value: repos },
     { label: 'Followers', value: followers },

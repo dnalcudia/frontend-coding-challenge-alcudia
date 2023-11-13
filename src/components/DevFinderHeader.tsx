@@ -1,15 +1,17 @@
 import { Box, Typography, Button, CircularProgress } from '@mui/material';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
+import { useDarkMode } from '../context/DarkModeContext';
 import React from 'react';
 
 interface DevFinderHeaderProps {
-  darkMode: boolean;
   isLoading?: boolean;
   onClickDarkMode: () => void;
 }
 
-export const DevFinderHeader = ({ isLoading = false, darkMode, onClickDarkMode }: DevFinderHeaderProps) => {
+export const DevFinderHeader = ({ isLoading = false, onClickDarkMode }: DevFinderHeaderProps) => {
+  const { darkMode } = useDarkMode();
+
   return (
     <Box alignItems='center' display='flex' justifyContent='space-between' marginBottom={24} width='100%'>
       <Typography color={darkMode ? 'white' : '#141d2f'} fontSize={24} fontWeight={600}>

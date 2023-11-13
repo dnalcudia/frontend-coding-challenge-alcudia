@@ -1,9 +1,9 @@
 import React, { KeyboardEvent } from 'react';
 import { Box, TextField, Button } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
+import { useDarkMode } from '../context/DarkModeContext';
 
 interface SearchBarProps {
-  darkMode: boolean;
   value: string;
   placeholder: string;
   isLoading?: boolean;
@@ -12,13 +12,14 @@ interface SearchBarProps {
 }
 
 export const SearchBar = ({
-  darkMode,
   isLoading = false,
   placeholder,
   value,
   onClickSearch,
   onChangeTextField,
 }: SearchBarProps) => {
+  const { darkMode } = useDarkMode();
+
   const isSearchButtonDisabled = isLoading || value === '';
   const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
     if (event.key === 'Enter') {
