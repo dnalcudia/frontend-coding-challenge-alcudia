@@ -4,17 +4,17 @@ import SearchIcon from '@mui/icons-material/Search';
 import { useDarkMode } from '../context/DarkModeContext';
 
 interface SearchBarProps {
-  value: string;
   placeholder: string;
+  value: string;
   isLoading?: boolean;
   onChangeTextField: (value: string) => void;
   onClickSearch: () => void;
 }
 
 export const SearchBar = ({
-  isLoading = false,
   placeholder,
   value,
+  isLoading = false,
   onClickSearch,
   onChangeTextField,
 }: SearchBarProps) => {

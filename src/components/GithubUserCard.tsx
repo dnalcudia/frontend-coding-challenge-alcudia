@@ -11,7 +11,7 @@ interface GithubUserCardProps {
   isLoading?: boolean;
 }
 
-export const GithubUserCard = ({ isLoading = false, githubUser }: GithubUserCardProps) => {
+export const GithubUserCard = ({ githubUser, isLoading = false }: GithubUserCardProps) => {
   const { darkMode } = useDarkMode();
 
   const {
