@@ -4,6 +4,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { useDarkMode } from '../context/DarkModeContext';
 
 interface SearchBarProps {
+  activeUsername: string;
   placeholder: string;
   value: string;
   isLoading?: boolean;
@@ -12,6 +13,7 @@ interface SearchBarProps {
 }
 
 export const SearchBar = ({
+  activeUsername,
   placeholder,
   value,
   isLoading = false,
@@ -20,9 +22,9 @@ export const SearchBar = ({
 }: SearchBarProps) => {
   const { darkMode } = useDarkMode();
 
-  const isSearchButtonDisabled = isLoading || value === '';
+  const isSearchButtonDisabled = isLoading || value === '' || value === activeUsername;
   const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
-    if (event.key === 'Enter') {
+    if (event.key === 'Enter' && value !== '' && value !== activeUsername) {
       onClickSearch();
     }
   };

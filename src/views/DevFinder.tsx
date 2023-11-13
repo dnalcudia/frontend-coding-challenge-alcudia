@@ -16,6 +16,7 @@ export const DevFinder = () => {
   const [showError, setShowError] = useState(false);
 
   const githubUser = useAppSelector(selectGithubUser);
+  const { username: activeUsername } = githubUser;
   const githubUserRequestStatus = useAppSelector(selectGithubUserRequestStatus);
 
   const isLoading = githubUserRequestStatus === RequestStatus.Loading;
@@ -56,6 +57,7 @@ export const DevFinder = () => {
         <Box alignItems='center' display='flex' flexDirection='column' justifyContent='space-between' width={700}>
           <DevFinderHeader isLoading={isLoading} onClickDarkMode={handleOnClickDarkMode} />
           <SearchBar
+            activeUsername={activeUsername}
             isLoading={isLoading}
             placeholder={'Search Github username...'}
             value={searchValue}
