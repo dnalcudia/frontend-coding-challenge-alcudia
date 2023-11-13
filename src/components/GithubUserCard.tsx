@@ -42,14 +42,14 @@ export const GithubUserCard = ({ isLoading = false, githubUser }: GithubUserCard
       sx={{ backgroundColor: darkMode ? '#1e2a47' : 'white', opacity: isLoading ? 0.3 : 1 }}
       width='100%'
     >
-      <img src={avatarUrl} alt={`${username}-avatar`} style={{ width: '124px', borderRadius: '100px' }} />
+      <img alt={`${username}-avatar`} src={avatarUrl} style={{ width: '124px', borderRadius: '100px' }} />
       <Box display='flex' flexDirection='column' width={'100%'}>
         <Box alignItems={'flex-start'} display='flex' justifyContent={'space-between'} marginBottom={24}>
-          <Box display='flex' flexDirection='column' alignItems='flex-start' gap={12}>
+          <Box alignItems='flex-start' display='flex' flexDirection='column' gap={12}>
             <Typography color={darkMode ? 'white' : '#141d2f'} fontSize={24} fontWeight={600}>
               {name || 'This profile has no name'}
             </Typography>
-            <a href={githubProfileUrl} target='blank' style={{ textDecoration: 'none' }}>
+            <a href={githubProfileUrl} style={{ textDecoration: 'none' }} target='blank'>
               <Typography color='#1168ec' fontSize={14}>
                 @{username}
               </Typography>
@@ -63,7 +63,7 @@ export const GithubUserCard = ({ isLoading = false, githubUser }: GithubUserCard
           </Typography>
         </Box>
         <GithubStats followers={followers} following={following} repos={publicRepos} />
-        <GithubLinks company={company} blog={blog} location={location} twitter={twitterUsername} />
+        <GithubLinks blog={blog} company={company} location={location} twitter={twitterUsername} />
       </Box>
     </Box>
   );

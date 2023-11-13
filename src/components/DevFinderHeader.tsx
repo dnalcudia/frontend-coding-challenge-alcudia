@@ -19,12 +19,12 @@ export const DevFinderHeader = ({ isLoading = false, onClickDarkMode }: DevFinde
       </Typography>
       {isLoading && <CircularProgress />}
       <Button onClick={onClickDarkMode}>
-        <Typography alignItems={'center'} gap={8} display={'flex'} color={darkMode ? 'white' : '#141d2f'} fontSize={12}>
+        <Typography alignItems={'center'} color={darkMode ? 'white' : '#141d2f'} display={'flex'} fontSize={12} gap={8}>
           {darkMode ? 'Light' : 'Dark'}
           {darkMode ? (
-            <LightModeIcon sx={{ color: darkMode ? 'white' : '#141d2f' }} fontSize='small' />
+            <LightModeIcon fontSize='small' sx={{ color: darkMode ? 'white' : '#141d2f' }} />
           ) : (
-            <DarkModeIcon sx={{ color: darkMode ? 'white' : '#141d2f' }} fontSize='small' />
+            <DarkModeIcon fontSize='small' sx={{ color: darkMode ? 'white' : '#141d2f' }} />
           )}
         </Typography>
       </Button>

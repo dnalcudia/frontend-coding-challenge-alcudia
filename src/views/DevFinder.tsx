@@ -47,11 +47,11 @@ export const DevFinder = () => {
       <Box
         alignItems='center'
         display='flex'
-        justifyContent='center'
         flexDirection='column'
         height='100vh'
-        width='100%'
+        justifyContent='center'
         sx={{ backgroundColor: darkMode ? '#141d2f' : 'white' }}
+        width='100%'
       >
         <Box alignItems='center' display='flex' flexDirection='column' justifyContent='space-between' width={700}>
           <DevFinderHeader isLoading={isLoading} onClickDarkMode={handleOnClickDarkMode} />
@@ -59,14 +59,14 @@ export const DevFinder = () => {
             isLoading={isLoading}
             placeholder={'Search Github username...'}
             value={searchValue}
-            onClickSearch={handleOnClickSearch}
             onChangeTextField={handleOnChangeTextField}
+            onClickSearch={handleOnClickSearch}
           />
-          <GithubUserCard isLoading={isLoading} githubUser={githubUser} />
+          <GithubUserCard githubUser={githubUser} isLoading={isLoading} />
         </Box>
       </Box>
-      <Snackbar open={showError} autoHideDuration={6000} onClose={handleCloseErrorSnackbar}>
-        <Alert onClose={handleCloseErrorSnackbar} severity='error' sx={{ width: '100%' }}>
+      <Snackbar autoHideDuration={6000} open={showError} onClose={handleCloseErrorSnackbar}>
+        <Alert severity='error' sx={{ width: '100%' }} onClose={handleCloseErrorSnackbar}>
           GitHub username not found. Please make sure you entered the correct username.
         </Alert>
       </Snackbar>

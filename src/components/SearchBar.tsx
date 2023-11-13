@@ -33,8 +33,8 @@ export const SearchBar = ({
       borderRadius={'8px'}
       boxShadow='rgba(0, 0, 0, 0.24) 0px 3px 8px'
       display='flex'
-      justifyContent='space-between'
       gap={8}
+      justifyContent='space-between'
       marginBottom={16}
       padding={12}
       sx={{ backgroundColor: darkMode ? '#1e2a47' : 'white' }}
@@ -43,24 +43,24 @@ export const SearchBar = ({
       <Box alignItems='center' display='flex' gap={8} width='100%'>
         <SearchIcon fontSize='large' sx={{ color: '#056be0' }} />
         <TextField
-          value={value}
           fullWidth
           placeholder={placeholder}
-          variant='outlined'
-          onChange={e => onChangeTextField(e.target.value)}
-          onKeyDown={handleKeyDown}
           sx={{
             color: darkMode ? 'white' : '#141d2f',
             '& .MuiOutlinedInput-root': {
               color: darkMode ? 'white' : '#141d2f',
             },
           }}
+          value={value}
+          variant='outlined'
+          onChange={e => onChangeTextField(e.target.value)}
+          onKeyDown={handleKeyDown}
         />
       </Box>
       <Button
         disabled={isSearchButtonDisabled}
-        variant='contained'
         sx={{ padding: 2, textTransform: 'none' }}
+        variant='contained'
         onClick={onClickSearch}
       >
         Search

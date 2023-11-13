@@ -10,13 +10,6 @@ export const theme = createTheme({
         },
       },
     },
-    MuiContainer: {
-      styleOverrides: {
-        root: {
-          backgroundColor: '#141d2f',
-        },
-      },
-    },
     MuiOutlinedInput: {
       styleOverrides: {
         root: {

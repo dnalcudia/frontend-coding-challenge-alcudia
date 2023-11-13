@@ -24,11 +24,11 @@ export const GithubLinks = ({ company, blog, location, twitter }: GithubLinksPro
   ];
 
   return (
-    <Box display='grid' gridTemplateColumns='repeat(2, 1fr)' gap={2} width={'100%'}>
+    <Box display='grid' gap={2} gridTemplateColumns='repeat(2, 1fr)' width={'100%'}>
       {links.map(({ logo: Logo, value }, index) => (
-        <Box key={index} alignItems='center' display={'flex'} gap={12}>
+        <Box alignItems='center' display={'flex'} gap={12} key={index}>
           <Logo fontSize='medium' sx={{ color: '#4b6a9b' }} />
-          <Typography variant='body2' sx={{ color: !!value ? (darkMode ? 'white' : '#141d2f') : '#4b6a9b' }}>
+          <Typography sx={{ color: !!value ? (darkMode ? 'white' : '#141d2f') : '#4b6a9b' }} variant='body2'>
             {value || 'Not Available'}
           </Typography>
         </Box>

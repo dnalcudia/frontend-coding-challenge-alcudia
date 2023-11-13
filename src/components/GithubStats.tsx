@@ -28,8 +28,8 @@ export const GithubStats = ({ followers, following, repos }: GithubStatsProps) =
       sx={{ backgroundColor: darkMode ? '#141d2f' : 'white' }}
     >
       {stats.map(({ label, value }, index) => (
-        <Box alignItems='center' display={'flex'} gap={8} flexDirection={'column'} key={index} marginBottom={1}>
-          <Typography fontWeight={600} color={darkMode ? 'white' : '#141d2f'}>
+        <Box alignItems='center' display={'flex'} flexDirection={'column'} gap={8} key={index} marginBottom={1}>
+          <Typography color={darkMode ? 'white' : '#141d2f'} fontWeight={600}>
             {label}
           </Typography>
           <Typography color={darkMode ? 'white' : '#141d2f'}>{value}</Typography>
