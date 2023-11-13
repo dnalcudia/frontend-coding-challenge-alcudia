@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
-import { useDarkMode } from '../context/DarkModeContext';
+import { useDarkMode } from '../../../context/DarkModeContext';
 
 interface GithubStatsProps {
   followers: number;

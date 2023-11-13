@@ -4,7 +4,7 @@ import ApartmentIcon from '@mui/icons-material/Apartment';
 import LinkIcon from '@mui/icons-material/Link';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import PlaceIcon from '@mui/icons-material/Place';
-import { useDarkMode } from '../context/DarkModeContext';
+import { useDarkMode } from '../../../context/DarkModeContext';
 
 interface GithubLinksProps {
   blog: string;

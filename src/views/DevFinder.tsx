@@ -5,7 +5,7 @@ import { RequestStatus } from '../ts/enums/RequestStatus';
 import { Box, Alert, Snackbar } from '@mui/material';
 import { SearchBar } from '../components/SearchBar';
 import { DevFinderHeader } from '../components/DevFinderHeader';
-import { GithubUserCard } from '../components/GithubUserCard';
+import { GithubUserCard } from '../components/GithubUserCard/GithubUserCard';
 import { getGithubUserByUsername } from '../store/githubUser/thunks';
 import { useDarkMode } from '../context/DarkModeContext';
 

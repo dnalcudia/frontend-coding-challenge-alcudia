@@ -17,8 +17,8 @@ export const SearchBar = ({
   placeholder,
   value,
   isLoading = false,
-  onClickSearch,
   onChangeTextField,
+  onClickSearch,
 }: SearchBarProps) => {
   const { darkMode } = useDarkMode();
 
@@ -34,6 +34,7 @@ export const SearchBar = ({
       alignItems='center'
       borderRadius={'8px'}
       boxShadow='rgba(0, 0, 0, 0.24) 0px 3px 8px'
+      boxSizing={'border-box'}
       display='flex'
       gap={8}
       justifyContent='space-between'
