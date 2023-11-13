@@ -1,4 +1,5 @@
 {
+  "homepage": "https://dnalcudia.github.io/frontend-coding-challenge-alcudia",
   "name": "frontend-coding-challenge",
   "version": "0.1.0",
   "private": true,
@@ -18,6 +19,7 @@
     "@types/react-dom": "^18.2.15",
     "axios": "^1.6.1",
     "date-fns": "^2.30.0",
+    "gh-pages": "^6.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.1.3",
@@ -50,7 +52,7 @@
     ]
   },
   "devDependencies": {
-     "eslint": "^8.39.0",
+    "eslint": "^8.39.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
