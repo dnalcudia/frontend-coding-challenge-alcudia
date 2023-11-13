@@ -5,6 +5,7 @@ import LinkIcon from '@mui/icons-material/Link';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import PlaceIcon from '@mui/icons-material/Place';
 import { useDarkMode } from '../../../context/DarkModeContext';
+import { v4 as uuidv4 } from 'uuid';
 
 interface GithubLinksProps {
   blog: string;
@@ -25,8 +26,8 @@ export const GithubLinks = ({ company, blog, location, twitter }: GithubLinksPro
 
   return (
     <Box display='grid' gap={2} gridTemplateColumns='repeat(2, 1fr)' width={'100%'}>
-      {links.map(({ logo: Logo, value }, index) => (
-        <Box alignItems='center' display={'flex'} gap={12} key={index}>
+      {links.map(({ logo: Logo, value }) => (
+        <Box alignItems='center' display={'flex'} gap={12} key={uuidv4()}>
           <Logo fontSize='medium' sx={{ color: '#4b6a9b' }} />
           <Typography sx={{ color: !!value ? (darkMode ? 'white' : '#141d2f') : '#4b6a9b' }} variant='body2'>
             {value || 'Not Available'}

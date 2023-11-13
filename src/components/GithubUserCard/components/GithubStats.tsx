@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 import { useDarkMode } from '../../../context/DarkModeContext';
+import { v4 as uuidv4 } from 'uuid';
 
 interface GithubStatsProps {
   followers: number;
@@ -27,8 +28,8 @@ export const GithubStats = ({ followers, following, repos }: GithubStatsProps) =
       padding={24}
       sx={{ backgroundColor: darkMode ? '#141d2f' : 'white' }}
     >
-      {stats.map(({ label, value }, index) => (
-        <Box alignItems='center' display={'flex'} flexDirection={'column'} gap={8} key={index} marginBottom={1}>
+      {stats.map(({ label, value }) => (
+        <Box alignItems='center' display={'flex'} flexDirection={'column'} gap={8} key={uuidv4()} marginBottom={1}>
           <Typography color={darkMode ? 'white' : '#141d2f'} fontWeight={600}>
             {label}
           </Typography>
