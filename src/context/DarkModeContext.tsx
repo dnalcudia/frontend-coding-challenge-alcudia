@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import { createContext, useContext, useState, ReactNode, FC } from 'react';
 
 interface DarkModeContextProps {
